@@ -2,14 +2,24 @@
 """test-all.py - main testing file
 """
 
+from modules import flatten as _flatten
+
+def _runFlatten(input):
+  print 'flatten', input
+  flat_res = _flatten.flattenList(input)
+  print res
+
 def runFlatten():
-  # Examples:
+  """Flatten lists for demonstration"""
 
-  # >> > flattenList([['1', 2, [3]], 4])
-  # ['1', 2, 3, 4]
+  def _runFlatten(input):
+    """Flatten a list, display input and result."""
+    print 'flatten', input
+    flat_res = _flatten.flattenList(input)
+    print '>', flat_res
 
-  # >> > flattenList(['1', 2, 3, [4], [], [[[[[[[[[5]]]]]]]]]])
-  # ['1', 2, 3, 4, 5]
+  _runFlatten([['1', 2, [3]], 4])
+  _runFlatten(['1', 2, 3, [4], [], [[[[[[[[[5]]]]]]]]]])
 
 
 def runTrackers():
@@ -28,6 +38,7 @@ def runTrackers():
 
   # >> > tracker.get_mean() # Get the average of all recorded data
   # 16.43
+  pass
 
 
 if __name__ == "__main__":

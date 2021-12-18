@@ -28,4 +28,14 @@ pipenv install --dev
 
 # Activate shell in virtual env
 pipenv shell
+# Run tests
+```
+
+# Test
+```
+# Run all tests
+pytest tests/*.py
+
+# Run one test module
+pytest tests/<test-module>.py
 ```
