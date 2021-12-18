@@ -18,3 +18,14 @@ Generic tracker will need to have a 'insert' and 'mean' function to be used by a
 Temperature tracker will have its own specific function such as "min" and "max".
 
 In the test-all.py file, simply use your trackers. Examples are provided. 
+
+# Run in virtual env
+
+## Using Pipenv
+```
+# Install locked dev and default dependencies
+pipenv install --dev
+
+# Activate shell in virtual env
+pipenv shell
+```
