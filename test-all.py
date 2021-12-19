@@ -35,8 +35,16 @@ def runTrackers():
     tracker.insert(data)
     print "insertion complete"
     print "mean", tracker.mean
+    return tracker
 
-  _runTracker(_tracker.GenericTracker, [22, 7, 22, 13, 2, 31, 18])
+  def _runTempTracker(data):
+    tracker = _runTracker(data, _tracker.TemperatureTracker)
+    print "min", tracker.min
+    print "max", tracker.max
+    return tracker
+
+  _runTracker([22, 7, 22, 13, 2, 31, 18])
+  _runTempTracker([22, 7, 22, 13, 2, 31, 18])
 
 
 if __name__ == "__main__":

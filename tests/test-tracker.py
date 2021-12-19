@@ -22,6 +22,8 @@ def tracker_factory(tracker_class, values=[1, 2, 3, 4, 5, 42]):
 @pytest.mark.parametrize('tracker_class, values, error',
   [
     (_tracker.GenericTracker, "not an array", ValueError),
+    (_tracker.TemperatureTracker, [1, 1.0], ValueError),
+    (_tracker.TemperatureTracker, [1, "1"], ValueError),
   ]
 )    
 def testInsertError(tracker_class, values, error):
@@ -58,3 +60,14 @@ def testMean(values, expected_mean):
     assert mean is None or isinstance(mean, float)
     if mean is not None:
         assert 100 * mean == int(mean * 100)
+
+@pytest.mark.parametrize('values, expected_min, expected_max',
+  [
+    ([0, -2, -17], -17, 0),
+    ([], None, None),
+  ]
+)
+def testTempExtremes(values, expected_min, expected_max):
+    tracker = tracker_factory(_tracker.TemperatureTracker, values)
+    assert tracker.min == expected_min
+    assert tracker.max == expected_max
