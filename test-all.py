@@ -2,7 +2,10 @@
 """test-all.py - main testing file
 """
 
-from modules import flatten as _flatten
+from modules import (
+  flatten as _flatten,
+  tracker as _tracker,
+)
 
 def _runFlatten(input):
   print 'flatten', input
@@ -23,22 +26,16 @@ def runFlatten():
 
 
 def runTrackers():
-  # Examples:
+  """Run trackers for demonstration"""
 
-  # >> > temperatures = [22, 7, 22, 13, 2, 31, 18]
-  # >> > tracker = TempTracker()
-  # >> > tracker.insert(temperatures) # Insert integer data only
-  # insertion complete
+  def _runTracker(data, tracker_class=_tracker.GenericTracker):
+    """Run tracker and output details"""
+    tracker = tracker_class()
+    print "running instance of", tracker.__class__.__name__
+    tracker.insert(data)
+    print "insertion complete"
 
-  # >> > tracker.get_max()
-  # 31
-
-  # >> > tracker.get_min()
-  # 2
-
-  # >> > tracker.get_mean() # Get the average of all recorded data
-  # 16.43
-  pass
+  _runTracker(_tracker.GenericTracker, [22, 7, 22, 13, 2, 31, 18])
 
 
 if __name__ == "__main__":
