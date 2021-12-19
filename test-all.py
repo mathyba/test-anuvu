@@ -34,6 +34,7 @@ def runTrackers():
     print "running instance of", tracker.__class__.__name__
     tracker.insert(data)
     print "insertion complete"
+    print "mean", tracker.mean
 
   _runTracker(_tracker.GenericTracker, [22, 7, 22, 13, 2, 31, 18])
 

@@ -54,3 +54,13 @@ class GenericTracker:
             raise ValueError("Data provided is incorrect, expected", expected)
 
         self.items = items 
+
+    @property
+    def mean(self):
+        """Get the mean value of the tracker dataset."""
+        if not self.items:
+            return None
+        try:
+            return round(float(sum(self.items)) / len(self.items), 2)
+        except ValueError:
+            raise ValueError("Types in dataset don't allow mean computation")
